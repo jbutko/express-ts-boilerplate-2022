@@ -1,0 +1,18 @@
+{
+  "apps": [
+    {
+      "name": "express-ts-boilerplate-2022",
+      "script": "./build/index.js",
+      "watch": false,
+      "env": {
+        "NODE_ENV": "production",
+        "PORT": 3457
+      },
+      "autorestart": true,
+      "instances": 1,
+      "log_date_format": "DD.MM.YYYY HH:mm Z",
+      "error_file": "logs/pm2/error.log",
+      "out_file": "logs/pm2/out.log"
+    }
+  ]
+}

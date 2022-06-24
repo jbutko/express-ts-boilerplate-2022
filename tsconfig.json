@@ -1,0 +1,31 @@
+{
+  "compileOnSave": true,
+  "compilerOptions": {
+    "baseUrl": "./",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "noLib": false,
+    "noUnusedLocals": true,
+    "outDir": "./build",
+    "pretty": true,
+    "removeComments": false,
+    "sourceMap": true,
+    "strict": true,
+    "target": "es6",
+    "typeRoots": ["./src/types", "./node_modules/@types"],
+    "noImplicitAny": false,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "paths": {
+      "*": ["src/typings/*"]
+    }
+  },
+  "ts-node": {
+    "files": true
+  },
+  "include": ["./src/**/*.ts"],
+  "exclude": ["build", "jest", "node_modules", "scripts", "webpack"],
+  "filesGlob": ["./**/*.ts", "!./build/**/*.ts", "!./node_modules/**/*.ts"],
+  "lib": ["es6"],
+  "files": ["./src/app/types/globals.d.ts"]
+}
