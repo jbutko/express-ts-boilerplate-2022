@@ -14,14 +14,17 @@ export const loadEnvSettings = (): DotenvParseOutput | any => {
   try {
     const CONSTANTS = dotenv.config({ path: '.env' });
     let parsedConstants = CONSTANTS.parsed as DotenvParseOutput;
-
-    const localEnvConfig = dotenv.parse(fs.readFileSync('.env.local'));
     const envOverrides = {};
-    for (const envSetting in localEnvConfig) {
-      const value = localEnvConfig[envSetting];
-      process.env[envSetting] = value;
-      Object.assign(envOverrides, { [envSetting]: value });
+
+    if (fs.existsSync('.env.local')) {
+      const localEnvConfig = dotenv.parse(fs.readFileSync('.env.local'));
+      for (const envSetting in localEnvConfig) {
+        const value = localEnvConfig[envSetting];
+        process.env[envSetting] = value;
+        Object.assign(envOverrides, { [envSetting]: value });
+      }
     }
+
     parsedConstants = { ...parsedConstants, ...envOverrides };
     return parsedConstants;
   } catch (err) {
