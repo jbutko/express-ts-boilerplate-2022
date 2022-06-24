@@ -24,7 +24,6 @@ export const createToken = (data: TObject, expiresIn?: string): string => {
   return token;
 };
 
-// TODO: verify correct logic
 export const checkTokenIsExpired = (
   decodedToken: TNullable<jwt.JwtPayload> | undefined,
   userLastLogoutAt?: TNullable<number>
